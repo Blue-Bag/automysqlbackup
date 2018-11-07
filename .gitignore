@@ -7,7 +7,7 @@ Gemfile.lock
 config.codekit
 # Thumbnails
 ._*
-
+*~
 # misc
 *.log
 *.pyc
