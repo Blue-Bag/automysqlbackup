@@ -1,0 +1,46 @@
+### local editor/OS config files ###
+.DS_Store
+.idea
+*~
+.vagrant
+Gemfile.lock
+config.codekit
+# Thumbnails
+._*
+
+# misc
+*.log
+*.pyc
+
+### archive files ###
+*.zip
+*.tar
+*.gz
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+
+# End of https://www.gitignore.io/api/windows
