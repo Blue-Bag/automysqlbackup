@@ -282,7 +282,13 @@ files_postprocessing () {
 	  if (( $CONFIG_dryrun )); then
 	    printf 'dry-running: openssl enc -aes-256-cbc -e -in %s -out %s.enc -pass pass:%s\n' ${1} ${1} "${CONFIG_encrypt_password}"
 	  else
-	    openssl enc -aes-256-cbc -e -in ${1} -out ${1}.enc -pass pass:"${CONFIG_encrypt_password}"
+	    # openssl enc -aes-256-cbc -e -in ${1} -out ${1}.enc -pass pass:"${CONFIG_encrypt_password}"
+        # update for openssl warning
+        # create a Raw key, in hex from the password
+        enckey="$(echo "${CONFIG_encrypt_password}" | xxd -ps -c 200 | tr -d '\n')"
+        # use as the key
+        openssl enc -aes-256-ecb -md md5 -nosalt -in ${1} -out ${1}.enc -K "${enckey}"
+
 	    if (( $? == 0 )); then
 		  if rm ${1} 2>&1; then
 		    echo "Successfully encrypted archive as ${1}.enc"
