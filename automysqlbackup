@@ -87,7 +87,7 @@ load_default_config() {
   CONFIG_db_names=()
   CONFIG_db_month_names=()
   CONFIG_db_exclude=( 'information_schema' )
-  CONFIG_table_exclude=()
+  CONFIG_table_exclude=('mysql.event' ) # avoid the event table warning)
   CONFIG_mailcontent='stdout'
   CONFIG_mail_maxattsize=4000
   CONFIG_mail_splitandtar='yes'
