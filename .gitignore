@@ -1,3 +1,4 @@
+automysqlbackup.local.conf
 ### local editor/OS config files ###
 .DS_Store
 .idea
