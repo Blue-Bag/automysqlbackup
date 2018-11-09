@@ -282,7 +282,7 @@ files_postprocessing () {
 	  if (( $CONFIG_dryrun )); then
 	    printf 'dry-running: openssl enc -aes-256-cbc -e -in %s -out %s.enc -pass pass:%s\n' ${1} ${1} "${CONFIG_encrypt_password}"
 	  else
-	    # openssl enc -aes-256-cbc -e -in ${1} -out ${1}.enc -pass pass:"${CONFIG_encrypt_password}"
+        # openssl enc -aes-256-cbc -e -in ${1} -out ${1}.enc -pass pass:"${CONFIG_encrypt_password}"
         # update for openssl warning
         # create a Raw key, in hex from the password
         # echo -n stops echo adding a new line character
