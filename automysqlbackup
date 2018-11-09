@@ -285,9 +285,10 @@ files_postprocessing () {
 	    # openssl enc -aes-256-cbc -e -in ${1} -out ${1}.enc -pass pass:"${CONFIG_encrypt_password}"
         # update for openssl warning
         # create a Raw key, in hex from the password
-        enckey="$(echo "${CONFIG_encrypt_password}" | xxd -ps -c 200 | tr -d '\n')"
+        # echo -n stops echo adding a new line character
+        enckey="$(echo -n "${CONFIG_encrypt_password}" | xxd -ps -c 200 | tr -d '\n')"
         # use as the key
-        openssl enc -aes-256-ecb -md md5 -nosalt -in ${1} -out ${1}.enc -K "${enckey}"
+        openssl enc -aes-256-ecb -md md5 -nosalt -in ${1} -out ${1}.enc -K "${enckey}" > /dev/null 2>&1
 
 	    if (( $? == 0 )); then
 		  if rm ${1} 2>&1; then
