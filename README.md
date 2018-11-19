@@ -7,7 +7,7 @@ Three has better features.
 
 Changes from the original release are to add --events to the dump commande to avoid errors. (made by masche842)
 
-Also in the role we grant EVENT privaledges to the DB user running the role to stop the error:
+Also in the role we grant EVENT privileges to the DB user running the role to stop the error:
 
 ````
 mysqldump: Couldn't execute 'show events': Access denied for user
